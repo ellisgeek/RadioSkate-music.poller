@@ -25,5 +25,5 @@
 						  "url"      => "http://clients.rootwerk.systems/sean/server/mp3/" . $fileInfo->getFilename());
 	}
 
-	echo(json_encode($output));
+	echo(json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 ?>
