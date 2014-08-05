@@ -18,9 +18,9 @@
 		$songmeta = $getID3->analyze($fileInfo->getPathname());
 		getid3_lib::CopyTagsToComments($songmeta);
 		
-		$output[] = array("artist"   => $songmeta['comments_html']['artist'][0],
-						  "title"    => $songmeta['comments_html']['title'][0],
-						  "album"    => $songmeta['comments_html']['album'][0],
+		$output[] = array("artist"   => str_replace('&amp;', '&', $songmeta['comments_html']['artist'][0]),
+						  "title"    => str_replace('&amp;', '&', $songmeta['comments_html']['title'][0]),
+						  "album"    => str_replace('&amp;', '&', $songmeta['comments_html']['album'][0]),
 						  "duration" => $songmeta['playtime_string'],
 						  "url"      => "http://clients.rootwerk.systems/sean/server/mp3/" . $fileInfo->getFilename());
 	}
